@@ -3,10 +3,11 @@ from collections import deque
 materials = [int(i) for i in input().split()]
 magic = deque(map(int, input().split()))
 present_value = {
-    'Doll': 150,
-    'Wooden train': 250,
-    'Teddy bear': 300,
-    'Bicycle': 400}
+                'Doll': 150,
+                'Wooden train': 250,
+                'Teddy bear': 300,
+                'Bicycle': 400
+}
 completed_presents = dict()
 while materials and magic:
     if magic[0] == 0 or materials[-1] == 0:
@@ -17,8 +18,7 @@ while materials and magic:
     else:
         result = materials[-1] * magic[0]
         if result < 0:
-            result = materials.pop() + magic.popleft()
-            materials.append(result)
+            materials.append(materials.pop() + magic.popleft())
         elif result in present_value.values():
             for k, v in present_value.items():
                 if v == result:
@@ -40,12 +40,8 @@ else:
     print('No presents this Christmas!')
 
 if materials:
-    print(f'Materials left: ', end='')
-    while materials:
-        if len(materials) == 1:
-            print(f'{materials.pop()}')
-        else:
-            print(f'{materials.pop()}, ', end='')
+    print(f'Materials left: {", ".join(str(i) for i in materials[::-1])}')
+
 if magic:
     print(f'Magic left: {", ".join(str(i) for i in magic)}')
 

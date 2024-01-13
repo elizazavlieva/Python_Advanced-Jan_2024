@@ -11,14 +11,11 @@ while string_expression:
         result = string_expression.popleft()
     else:
         symbol = string_expression.popleft()
-        if symbol.isdigit():
-            numbers.append(symbol)
-        elif len(symbol) > 1:
+        if symbol.isdigit() or len(symbol) > 1:
             numbers.append(symbol)
         else:
             while numbers:
                 result = eval(str(result) + symbol + numbers.popleft())
-
             result = math.floor(result)
 
 print(result)

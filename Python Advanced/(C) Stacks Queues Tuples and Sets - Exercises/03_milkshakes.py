@@ -8,10 +8,9 @@ while chocolate_stack and milk_cups and counter < 5:
     if chocolate_stack[-1] <= 0 or milk_cups[0] <= 0:
         if chocolate_stack[-1] <= 0:
             chocolate_stack.pop()
-            if milk_cups[0] <= 0:
-                milk_cups.popleft()
-        else:
+        if milk_cups[0] <= 0:
             milk_cups.popleft()
+
     else:
         if milk_cups[0] == chocolate_stack[-1]:
             counter += 1
