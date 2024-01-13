@@ -5,6 +5,7 @@ free_win_duration = int(input())
 car_queue = deque()
 counter = 0
 crashed = False
+
 command = input()
 while command != 'END':
     if command != 'green':
@@ -16,8 +17,7 @@ while command != 'END':
             if current_green_light == 0:
                 break
             elif car <= current_green_light:
-                current_green_light -= car
-                car_queue.popleft()
+                current_green_light -= len(car_queue.popleft())
                 counter += 1
             elif car > current_green_light:
                 car = abs(car - current_green_light)

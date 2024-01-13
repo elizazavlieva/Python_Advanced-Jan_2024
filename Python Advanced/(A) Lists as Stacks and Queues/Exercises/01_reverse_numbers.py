@@ -1,5 +1,3 @@
-
-
 stack = list(input().split())
 
 while stack:

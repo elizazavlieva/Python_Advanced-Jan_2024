@@ -4,7 +4,6 @@ bullet_price = int(input())
 barrel_size = int(input())
 
 bullets = [int(i) for i in input().split()]
-
 locks = deque(int(i) for i in input().split())
 intelligence_value = int(input())
 
@@ -31,5 +30,4 @@ if bullets and reloading == 0:
 if locks:
     print(f'Couldn\'t get through. Locks left: {len(locks)}')
 else:
-    earned_money = intelligence_value - (bullet_counter * bullet_price)
-    print(f'{len(bullets)} bullets left. Earned ${earned_money} ')
+    print(f'{len(bullets)} bullets left. Earned ${intelligence_value - (bullet_counter * bullet_price)} ')

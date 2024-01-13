@@ -1,4 +1,3 @@
-
 from collections import deque
 
 food_qty = int(input())
