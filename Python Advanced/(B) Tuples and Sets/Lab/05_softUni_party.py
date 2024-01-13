@@ -1,8 +1,5 @@
 n = int(input())
-guests_list = set()
-for _ in range(n):
-    guest = input()
-    guests_list.add(guest)
+guests_list = set(input() for _ in range(n))
 
 command = input()
 while command != 'END':
@@ -10,10 +7,6 @@ while command != 'END':
         guests_list.remove(command)
     command = input()
 
-vip_guest = sorted([i for i in guests_list if i[0].isdigit()])
-regular_guest = sorted([i for i in guests_list if i[0].isalpha()])
-print(f'{len(vip_guest) + len(regular_guest)}')
-for guest in vip_guest:
-    print(guest)
-for guest in regular_guest:
+print(f'{len(guests_list)}')
+for guest in sorted(guests_list):
     print(guest)

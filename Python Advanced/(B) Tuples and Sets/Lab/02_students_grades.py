@@ -7,8 +7,6 @@ for _ in range(n):
     student_info[name].append(float(grades))
 
 for k, v in student_info.items():
-    avg_grade = sum(v) / len(v)
-    print(f'{k} ->', end="")
-    for grade in v:
-        print(f' {grade:.2f}', end="")
-    print(f' (avg: {avg_grade:.2f})')
+    grade = " ".join([f'{i:.2f}' for i in v])
+    print(f'{k} -> {grade} '
+          f'(avg: {sum(v) / len(v):.2f})')
