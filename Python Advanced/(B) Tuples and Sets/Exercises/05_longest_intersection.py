@@ -1,22 +1,18 @@
 n = int(input())
-intersection_one = set()
-intersection_two = set()
-longest_intersection = set()
+first_line = set()
+second_line = set()
+longest_line = set()
 
 for _ in range(n):
     user_input = input().split('-')
     first_start, first_end = user_input[0].split(',')
     second_start, second_end = user_input[1].split(',')
-    for num in range(int(first_start), int(first_end) + 1):
-        intersection_one.add(num)
-    for num in range(int(second_start), int(second_end) + 1):
-        intersection_two.add(num)
-    current_intersection = intersection_one.intersection(intersection_two)
-    if len(current_intersection) > len(longest_intersection):
-        longest_intersection = intersection_one.intersection(intersection_two)
-    intersection_one.clear()
-    intersection_two.clear()
+    first_line = {num for num in range(int(first_start), int(first_end) + 1)}
+    second_line = {num for num in range(int(second_start), int(second_end) + 1)}
+    current_line = first_line.intersection(second_line)
+    if len(current_line) > len(longest_line):
+        longest_line = current_line
+    first_line.clear()
+    second_line.clear()
 
-item_list = list(map(lambda x: x, longest_intersection))
-
-print(f"Longest intersection is {item_list} with length {len(item_list)}")
+print(f"Longest intersection is {list(map(lambda x: x, longest_line))} with length {len(longest_line)}")
