@@ -1,4 +1,3 @@
-import sys
 
 rows, cols = [int(el) for el in input().split(', ')]
 sub_matrix = []
