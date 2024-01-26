@@ -1,5 +1,6 @@
 from collections import deque
 
+
 def math_operations(*args, **kwargs):
     numbers = deque([el for el in args])
 

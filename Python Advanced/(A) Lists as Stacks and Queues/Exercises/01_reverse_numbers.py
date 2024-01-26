@@ -1,4 +1,3 @@
-stack = list(input().split())
-
+stack = input().split()
 while stack:
     print(stack.pop(), end=' ')

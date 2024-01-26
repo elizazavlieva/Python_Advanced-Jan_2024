@@ -11,8 +11,8 @@ while cups_capacity and bottle_capacity:
         cups_capacity[0] -= bottle_capacity.pop()
 
 if cups_capacity:
-    print(f'Cups: {" ". join([str(i) for i in cups_capacity])}')
+    print(f'Cups:', *cups_capacity)
 else:
-    print(f'Bottles: {" ". join([str(i) for i in bottle_capacity])}')
+    print(f'Bottles:', *bottle_capacity)
 
 print(f'Wasted litters of water: {wasted_water}')

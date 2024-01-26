@@ -1,18 +1,12 @@
 def even_odd_filter(**kwargs):
     result = {}
 
-    def odd():
-        return [el for el in value if el % 2 != 0]
-
-    def even():
-        return [el for el in value if el % 2 == 0]
-
     for key, value in kwargs.items():
         if key == 'odd':
-            result[key] = odd()
+            result[key] = [el for el in value if el % 2 != 0]
         elif key == 'even':
-            result[key] = even()
-    return result
+            result[key] = [el for el in value if el % 2 == 0]
+    return dict(sorted(result.items(), key=lambda kvp: -len(kvp[1])))
 
 
 '''TESTS'''

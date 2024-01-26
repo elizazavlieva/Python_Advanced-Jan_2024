@@ -1,5 +1,4 @@
 def even_odd(*args):
-    result = []
     numbers = []
     command = ''
     for el in args:
@@ -8,16 +7,11 @@ def even_odd(*args):
         else:
             command = el
 
-    def even():
-        return [i for i in numbers if i % 2 == 0]
-
-    def odd():
-        return [i for i in numbers if i % 2 != 0]
     if command == 'even':
-        result = even()
+        return [i for i in numbers if i % 2 == 0]
     elif command == 'odd':
-        result = odd()
-    return result
+        return [i for i in numbers if i % 2 != 0]
+
 
 
 '''TESTS'''

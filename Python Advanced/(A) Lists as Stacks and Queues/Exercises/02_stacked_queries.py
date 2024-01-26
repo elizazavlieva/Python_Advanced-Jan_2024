@@ -1,7 +1,7 @@
-stack = list()
-n = int(input())
+stack = []
 
-for i in range(n):
+
+for i in range(int(input())):
     command = input().split()
     if command[0] == '1':
         stack.append(int(command[1]))
@@ -14,7 +14,6 @@ for i in range(n):
             min_value = min(stack)
             print(min_value)
 
-while stack:
-    print(stack.pop(), end="")
-    if stack:
-        print(", ", end="")
+stack.reverse()
+
+print(*stack, sep=', ')

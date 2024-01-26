@@ -1,22 +1,18 @@
+from collections import deque
+
+
 def fill_the_box(height, length, width, *args):
     box_size = height * length * width
-    free_cubes = 0
-    for num in args:
-        if num == 'Finish':
-            break
-        if box_size - num <= 0:
-            num -= box_size
-            box_size = 0
-        if box_size > 0:
-            box_size -= num
-        else:
-            free_cubes += num
+    cubes = deque(args)
 
+    while cubes[0] != 'Finish':
+        box_size -= cubes.popleft()
 
-    if box_size <= 0:
-        return f'No more free space! You have {free_cubes} more cubes.'
-    else:
-        return f'There is free space in the box. You could put {box_size} more cubes.'
+        if box_size < 0:
+            cubes_left = sum(el for el in cubes if el != 'Finish')
+            return f'No more free space! You have {cubes_left + abs(box_size)} more cubes.'
+
+    return f'There is free space in the box. You could put {box_size} more cubes.'
 
 
 '''TESTS'''
