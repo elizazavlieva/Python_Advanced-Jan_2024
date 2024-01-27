@@ -13,23 +13,22 @@ while worms and holes:
         counter += 1
     else:
         worms[-1] -= 3
+        if worms[-1] <= 0:
+            worms.pop()
     holes.popleft()
-    if worms and worms[-1] <= 0:
-        worms.pop()
+
 
 if counter:
     print(f'Matches: {counter}')
 else:
     print('There are no matches.')
-if counter == worms_count:
-    print('Every worm found a suitable hole!')
-elif not worms and counter > 0:
-    print('Worms left: none')
-elif worms:
-    print(f'Worms left: {", ".join(str(el) for el in worms)}')
+if counter != worms_count:
+    if worms:
+        print(f'Worms left: {", ".join(str(el) for el in worms)}')
+    else:
+        print('Worms left: none')
 else:
-    print('Worms left: none')
-
+    print('Every worm found a suitable hole!')
 
 if holes:
     print(f'Holes left: {", ".join(str(el) for el in holes)}')
