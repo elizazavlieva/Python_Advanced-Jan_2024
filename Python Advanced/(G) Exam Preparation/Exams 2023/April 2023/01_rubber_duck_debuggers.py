@@ -10,8 +10,8 @@ ducky_type = {'Darth Vader Ducky': (0, 60), 'Thor Ducky': (61, 120),
               'Big Blue Rubber Ducky': (121, 180), 'Small Yellow Rubber Ducky': (181, 240)}
 
 while time and tasks:
-    result = time[0] * tasks[-1]
 
+    result = time[0] * tasks[-1]
     for duck_type, needed_time in ducky_type.items():
 
         if result in range(needed_time[0], needed_time[1] + 1):

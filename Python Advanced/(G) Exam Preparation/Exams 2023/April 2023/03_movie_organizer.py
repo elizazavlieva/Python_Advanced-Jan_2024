@@ -1,12 +1,14 @@
 def movie_organizer(*args):
     movie_collection = {}
     for movie, genre in args:
+
         if genre not in movie_collection:
             movie_collection[genre] = []
         movie_collection[genre].append(movie)
-    sorted_movies = dict(sorted(movie_collection.items(), key=lambda kvp: (-len(kvp[1]), kvp[0])))
 
+    sorted_movies = dict(sorted(movie_collection.items(), key=lambda kvp: (-len(kvp[1]), kvp[0])))
     result = []
+
     for genre, movies in sorted_movies.items():
         result.append(f'{genre} - {len(movies)}')
         [result.append(f'* {el}') for el in sorted(movies)]

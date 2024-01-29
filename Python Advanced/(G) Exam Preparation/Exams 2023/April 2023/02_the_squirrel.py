@@ -32,9 +32,11 @@ while commands:
             print('Unfortunately, the squirrel stepped on a trap...')
             game_over = True
             break
+
         matrix[move[0]][move[1]] = 's'
         matrix[squirrel_position[0]][squirrel_position[1]] = '*'
         squirrel_position = move
+
         if not hazelnut_positions:
             break
     else:
