@@ -15,6 +15,7 @@ while time and tasks:
     for duck_type, needed_time in ducky_type.items():
 
         if result in range(needed_time[0], needed_time[1] + 1):
+
             rubber_ducks_info[duck_type] += 1
             time.popleft()
             tasks.pop()

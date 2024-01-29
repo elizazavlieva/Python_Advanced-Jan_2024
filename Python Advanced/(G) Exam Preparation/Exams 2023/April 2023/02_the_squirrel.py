@@ -6,6 +6,7 @@ matrix = []
 squirrel_position = []
 hazelnut_positions = []
 collected_nuts = 0
+
 for row in range(size):
     matrix.append(list(input()))
     for col in range(size):

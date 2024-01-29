@@ -10,6 +10,7 @@ def movie_organizer(*args):
     result = []
 
     for genre, movies in sorted_movies.items():
+
         result.append(f'{genre} - {len(movies)}')
         [result.append(f'* {el}') for el in sorted(movies)]
 
