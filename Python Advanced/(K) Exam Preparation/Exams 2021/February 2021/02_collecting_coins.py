@@ -37,10 +37,12 @@ while command:
         player = movement(player, command, directions, size)
         player_path.append(player)
         value = matrix[player[0]][player[1]]
+
         if value == 'X':
             total_coins = math.floor(total_coins / 2)
             print(f'Game over! You\'ve collected {total_coins} coins.')
             break
+
         elif value.isdigit():
             total_coins += int(value)
 
