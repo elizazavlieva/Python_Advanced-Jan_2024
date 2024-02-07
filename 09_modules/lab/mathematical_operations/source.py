@@ -1,3 +1,8 @@
+from math import floor
+
+
+def truncate(f, n):
+    return floor(f * 10 ** n) / 10 ** n
 def add(num1, num2):
     return num1 + num2
 
@@ -18,7 +23,7 @@ def divide(num1, num2):
 
 
 def power(num1, num2):
-    return pow(num1, num2)
+    return truncate(pow(num1, num2), 2)
 
 
 operations = {'+': add,
