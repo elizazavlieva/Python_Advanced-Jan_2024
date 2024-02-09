@@ -38,22 +38,27 @@ is_all_collected = False
 command = input()
 while command != "End":
     side, step = command.split("-")
+
     for i in range(int(step)):
         matrix[player[0]][player[1]] = 'x'
         player = movement(player, side, direction_mapper)
         item = matrix[player[0]][player[1]]
+
         if item == "D" or item == "G" or item == "C":
             collected_items[item][0] += 1
             christmas_items.remove(player)
         matrix[player[0]][player[1]] = 'Y'
+
         if not christmas_items:
             is_all_collected = True
             break
+
     if is_all_collected:
         print("Merry Christmas!")
         break
 
     command = input()
+
 print("You've collected:")
 [print(f"- {count} {items}") for count, items in collected_items.values()]
 [print(*elements, sep=" ") for elements in matrix]
