@@ -1,5 +1,5 @@
 import os
-import string
+from string import punctuation
 
 path = os.path.join("text_folder", 'text.txt')
 
@@ -11,7 +11,7 @@ for i in range(len(text)):
     punctuation_count, letters_count = 0, 0
 
     for char in text[i]:
-        if char in string.punctuation:
+        if char in punctuation:
             punctuation_count += 1
         elif char.isalpha():
             letters_count += 1

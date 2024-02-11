@@ -7,11 +7,9 @@ with open(path) as file:
 
 symbols = ["-", ",", ".", "!", "?"]
 
-for i in range(len(text)):
-    if i % 2 == 0:
-        for el in symbols:
-            text[i] = text[i].replace(el, '@')
-        line = text[i].split()
-        print(" ".join(line[::-1]))
+for i in range(0, len(text), 2):
+    for el in symbols:
+        text[i] = text[i].replace(el, '@')
+    print(" ".join(text[i].split()[::-1]))
 
 
