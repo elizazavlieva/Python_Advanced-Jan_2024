@@ -8,6 +8,7 @@ while tools and substances and challenges:
     tool = tools.popleft()
     substance = substances.pop()
     multiply = tool * substance
+
     if multiply in challenges:
         challenges.remove(multiply)
     else:
@@ -16,6 +17,7 @@ while tools and substances and challenges:
         substance -= 1
         if substance > 0:
             substances.append(substance)
+
 if challenges:
     print('Harry is lost in the temple. Oblivion awaits him.')
 else:

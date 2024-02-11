@@ -1,16 +1,20 @@
 def gather_credits(needed_credits, *args):
     courses = []
     reached_credits = 0
-    for course, credits in args:
+
+    for course, credit in args:
         if reached_credits >= needed_credits:
             break
         if course in courses:
             continue
+
         courses.append(course)
-        reached_credits += credits
+        reached_credits += credit
+
     if reached_credits < needed_credits:
         return f'You need to enroll in more courses! ' \
                f'You have to gather {needed_credits - reached_credits} credits more.'
+
     return f'Enrollment finished! Maximum credits: {reached_credits}.\n' \
            f'Courses: {", ".join(sorted(courses))}'
 
