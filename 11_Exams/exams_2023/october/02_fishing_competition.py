@@ -1,10 +1,10 @@
-n = int(input())
+SIZE = int(input())
 matrix = []
 sailor = []
 
-for row in range(n):
+for row in range(SIZE):
     matrix.append(list(input()))
-    for col in range(n):
+    for col in range(SIZE):
         if matrix[row][col] == 'S':
             sailor = [row, col]
 
@@ -15,39 +15,42 @@ collected_fish = 0
 sink = False
 reached_quota = False
 
-command = input()
-while command != 'collect the nets':
 
-    position = [directions[command][0] + sailor[0], directions[command][1] + sailor[1]]
-    if position[0] not in range(n) or position[1] not in range(n):
+def movement(directions, command, sailor):
+    sailor = [directions[command][0] + sailor[0],
+              directions[command][1] + sailor[1]]
+    if sailor[0] not in range(SIZE) or sailor[1] not in range(SIZE):
 
         for pos in range(2):
-            if position[pos] < 0:
-                position[pos] = n - 1
-            elif position[pos] >= n:
-                position[pos] = 0
+            if sailor[pos] < 0:
+                sailor[pos] = SIZE - 1
+            elif sailor[pos] >= SIZE:
+                sailor[pos] = 0
+    return sailor
 
-    if matrix[position[0]][position[1]].isnumeric():
 
-        collected_fish += int(matrix[position[0]][position[1]])
+command = input()
+while command != 'collect the nets':
+    matrix[sailor[0]][sailor[1]] = '-'
+    sailor = movement(directions, command, sailor)
+
+    if matrix[sailor[0]][sailor[1]].isnumeric():
+        collected_fish += int(matrix[sailor[0]][sailor[1]])
+
         if collected_fish >= 20:
             reached_quota = True
 
-    elif matrix[position[0]][position[1]] == 'W':
-
+    elif matrix[sailor[0]][sailor[1]] == 'W':
         sink = True
         print(f'You fell into a whirlpool! The ship sank and you lost the fish you caught. '
-              f'Last coordinates of the ship: [{position[0]},{position[1]}]')
-
+              f'Last coordinates of the ship: [{sailor[0]},{sailor[1]}]')
         break
 
-    matrix[sailor[0]][sailor[1]] = '-'
-    matrix[position[0]][position[1]] = 'S'
-    sailor = [position[0], position[1]]
+    matrix[sailor[0]][sailor[1]] = 'S'
+
     command = input()
 
 if not sink:
-
     if not reached_quota:
         print(f'You didn\'t catch enough fish and didn\'t reach the quota! '
               f'You need {abs(collected_fish - 20)} tons of fish more.')

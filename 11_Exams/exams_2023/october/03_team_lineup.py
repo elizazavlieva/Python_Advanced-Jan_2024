@@ -11,7 +11,6 @@ def team_lineup(*args):
     result = ''
     for key, value in sorted_data.items():
         result += f'{key}:\n'
-
         for el in value:
             result += f'  -{el}\n'
 
