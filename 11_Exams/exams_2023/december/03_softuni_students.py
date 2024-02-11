@@ -7,11 +7,14 @@ def softuni_students(*args, **kwargs):
             students_data[username] = kwargs[id]
         else:
             invalid_users.add(username)
+
     result = ''
     sorted_data = sorted(students_data.items())
+
     for student, courses in sorted_data:
         result += f"*** A student with the username {student} " \
                       f"has successfully finished the course {courses}!\n"
+
     if invalid_users:
         result += f"!!! Invalid course students: {', '.join(sorted(invalid_users))}"
 
