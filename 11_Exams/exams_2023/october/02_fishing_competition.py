@@ -20,12 +20,9 @@ def movement(directions, command, sailor):
     sailor = [directions[command][0] + sailor[0],
               directions[command][1] + sailor[1]]
     if sailor[0] not in range(SIZE) or sailor[1] not in range(SIZE):
+        sailor = [(sailor[0] + SIZE) % SIZE,
+                   (sailor[1] + SIZE) % SIZE]
 
-        for pos in range(2):
-            if sailor[pos] < 0:
-                sailor[pos] = SIZE - 1
-            elif sailor[pos] >= SIZE:
-                sailor[pos] = 0
     return sailor
 
 
