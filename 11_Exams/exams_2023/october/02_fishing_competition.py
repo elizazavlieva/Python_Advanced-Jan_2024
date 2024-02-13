@@ -17,11 +17,8 @@ reached_quota = False
 
 
 def movement(directions, command, sailor):
-    sailor = [directions[command][0] + sailor[0],
-              directions[command][1] + sailor[1]]
-    if sailor[0] not in range(SIZE) or sailor[1] not in range(SIZE):
-        sailor = [(sailor[0] + SIZE) % SIZE,
-                   (sailor[1] + SIZE) % SIZE]
+    sailor = [(directions[command][0] + sailor[0] + SIZE) % SIZE,
+              (directions[command][1] + sailor[1] + SIZE) % SIZE]
 
     return sailor
 
